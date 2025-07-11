@@ -35,6 +35,7 @@ class WeatherData(BaseModel):
     precipitation: Optional[float] = None
     visibility: Optional[float] = None
     pressure: Optional[float] = None
+    cloud_cover: Optional[float] = None
 
 
 class StationData(BaseModel):

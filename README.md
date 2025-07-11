@@ -17,6 +17,7 @@ A FastMCP server that provides real-time weather data from KNMI (Royal Netherlan
   - Precipitation
   - Visibility
   - Air pressure
+  - Cloud cover
 - Natural language interpretation of weather conditions
 - Location search functionality
 - Detailed logging
@@ -153,7 +154,7 @@ The application logs are stored in the `logs/knmi_weather.log` file, providing d
 
 ## Data Sources
 
-This application uses the KNMI Data Platform API to fetch data from the "Actuele10mindataKNMIstations" dataset, which provides 10-minute interval measurements from all KNMI weather stations in the Netherlands.
+This application uses the KNMI Data Platform API to fetch data from the "10-minute-in-situ-meteorological-observations" dataset, which provides 10-minute interval measurements from all KNMI automatic weather stations in the Netherlands.
 
 ## Error Handling
 

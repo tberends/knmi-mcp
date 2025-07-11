@@ -53,6 +53,7 @@ class WeatherService:
                 "precipitation": measurements.get("precipitation_amount", 0.0),
                 "visibility": measurements.get("visibility", 0.0),
                 "pressure": measurements.get("air_pressure", 0.0),
+                "cloud_cover": measurements.get("cloud_cover", 0.0),
                 "timestamp": metadata.get("timestamp", datetime.now()),
                 "station_id": metadata.get("station_id", station.id),
                 "station_name": metadata.get("station_name", station.name),

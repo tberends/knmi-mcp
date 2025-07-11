@@ -217,9 +217,10 @@ def weather_interpretation(raw_data: Dict[str, Any]) -> str:
         - Humidity: {raw_data.get("humidity", "N/A")}%
         - Wind Speed: {raw_data.get("wind_speed", "N/A")} m/s
         - Wind Direction: {raw_data.get("wind_direction", "N/A")} degrees
-        - Precipitation: {raw_data.get("precipitation", "N/A")} mm
+        - Precipitation: {raw_data.get("precipitation", "N/A")} mm/h
         - Visibility: {raw_data.get("visibility", "N/A")} meters
         - Pressure: {raw_data.get("pressure", "N/A")} hPa
+        - Cloud Cover: {raw_data.get("cloud_cover", "N/A")} okta
         """
     except Exception as e:
         logger.error(f"Error formatting weather interpretation: {str(e)}")

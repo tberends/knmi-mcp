@@ -30,8 +30,8 @@ class StationManager:
 
     # API endpoints
     BASE_URL = "https://api.dataplatform.knmi.nl/open-data/v1"
-    DATASET_NAME = "Actuele10mindataKNMIstations"
-    DATASET_VERSION = "2"
+    DATASET_NAME = "10-minute-in-situ-meteorological-observations"
+    DATASET_VERSION = "1.0"
 
     # Netherlands bounding box (mainland Netherlands)
     NL_BOUNDS = {
@@ -41,16 +41,17 @@ class StationManager:
         "max_lon": 7.2,  # Easternmost point
     }
 
-    # Parameter mapping for 10-minute data
+    # Parameter mapping for 10-minute data (NetCDF variable names)
     PARAMETER_MAPPING = {
-        "T": "temperature",  # Air temperature
-        "RH": "relative_humidity",  # Relative humidity
-        "FF": "wind_speed",  # 10-min mean wind speed
-        "DD": "wind_direction",  # Wind direction
-        "VIS": "visibility",  # Visibility
-        "P": "air_pressure",  # Air pressure
-        "RR": "precipitation_amount",  # Precipitation amount
-        "DR": "precipitation_duration",  # Precipitation duration
+        "ta": "temperature",  # Air temperature (°C)
+        "rh": "relative_humidity",  # Relative humidity (%)
+        "ff": "wind_speed",  # Wind speed (m/s)
+        "dd": "wind_direction",  # Wind direction (degrees)
+        "vv": "visibility",  # Visibility (meters)
+        "pp": "air_pressure",  # Air pressure (hPa)
+        "rg": "precipitation_amount",  # Precipitation amount (mm/h)
+        "dr": "precipitation_duration",  # Precipitation duration (seconds)
+        "n": "cloud_cover",  # Cloud cover (okta)
     }
 
     def __new__(cls):
@@ -397,10 +398,11 @@ class StationManager:
                                 "rh": "relative_humidity",  # Relative humidity (%)
                                 "ff": "wind_speed",  # Wind speed (m/s)
                                 "dd": "wind_direction",  # Wind direction (degrees)
-                                "vis": "visibility",  # Visibility (meters)
+                                "vv": "visibility",  # Visibility (meters)
                                 "pp": "air_pressure",  # Air pressure (hPa)
-                                "rr": "precipitation_amount",  # Precipitation amount (mm)
-                                "dr": "precipitation_duration",  # Precipitation duration (minutes)
+                                "rg": "precipitation_amount",  # Precipitation amount (mm/h)
+                                "dr": "precipitation_duration",  # Precipitation duration (seconds)
+                                "n": "cloud_cover",  # Cloud cover (okta)
                             }
 
                             # Extract values for each parameter
