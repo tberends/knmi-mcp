@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "KNMI Weather": {
+      "command": "/Users/thomasberends/Documents/TUDelft/TU Delft - Repos/knmi-mcp/.venv/bin/python",
+      "args": [
+        "/Users/thomasberends/Documents/TUDelft/TU Delft - Repos/knmi-mcp/src/knmi_weather_mcp/server.py"
+      ],
+      "cwd": "/Users/thomasberends/Documents/TUDelft/TU Delft - Repos/knmi-mcp"
+    }
+  }
+}
