@@ -46,52 +46,39 @@ A FastMCP server that provides real-time weather data from KNMI (Royal Netherlan
 
 ### Using Claude AI
 
-To use this application with Claude AI, run the following command in the folder of the project:
+To use this application with Claude AI, follow these steps:
 
-```bash
-uv run fastmcp install src/knmi_weather_mcp/server.py
-```
+1. **Install dependencies:**
+   ```bash
+   uv sync
+   ```
 
-This will add the following configuration to your Claude configuration file (typically located at `~/Library/Application Support/Claude/claude_desktop_config.json`):
+2. **Add configuration to Claude:**
+   Manually add the following configuration to your Claude configuration file (typically located at `~/Library/Application Support/Claude/claude_desktop_config.json`):
 
 ```json
 {
+  "mcpServers": {
     "KNMI Weather": {
-      "command": "uv",
+      "command": "/Users/<username>/<git location>/knmi-mcp/.venv/bin/python",
       "args": [
-        "run",
-        "--with",
-        "fastmcp",
-        "--with",
-        "httpx",
-        "--with",
-        "netCDF4",
-        "--with",
-        "numpy",
-        "--with",
-        "pandas",
-        "--with",
-        "pydantic",
-        "--with",
-        "python-dotenv",
-        "--with",
-        "xarray",
-        "fastmcp",
-        "run",
         "/Users/<username>/<git location>/knmi-mcp/src/knmi_weather_mcp/server.py"
-      ]
+      ],
+      "cwd": "/Users/<username>/<git location>/knmi-mcp"
     }
+  }
 }
 ```
 
-Note: If you see an error like this:
+**Note:** Replace `/Users/<username>/<git location>/knmi-mcp` with the actual path to your project directory.
 
+**Important:** Make sure you have installed the dependencies first by running:
+
+```bash
+uv sync
 ```
-spawn uv ENOENT
-```
 
-Replace the `uv` command with the full path to the `uv` command. On *nix systems this can be found with the command `which uv`.
-
+This will create the virtual environment and install all required dependencies.
 
 ### Manual Running
 
@@ -142,6 +129,22 @@ Example:
 ```python
 await get_nearest_station(52.3676, 4.9041)
 ```
+
+## Configuration
+
+The application uses environment variables for configuration:
+
+- `KNMI_API_KEY`: Your KNMI API key (required)
+- `PORT`: Server port (default: 8001)
+
+All dependencies are automatically managed by the FastMCP server, including:
+- httpx
+- pydantic
+- python-dotenv
+- pandas
+- xarray
+- numpy
+- netCDF4
 
 ## Logging
 

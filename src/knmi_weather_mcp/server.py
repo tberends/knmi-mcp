@@ -15,11 +15,12 @@ from knmi_weather_mcp.weather import WeatherService
 # Get the absolute path to the src directory
 current_dir = Path(__file__).resolve().parent
 src_dir = current_dir.parent.parent
+project_root = src_dir  # Project root is the same as src_dir parent
 
 load_dotenv()
 
-# Set up logging
-log_dir = Path("logs")
+# Set up logging with absolute path
+log_dir = project_root / "logs"
 log_dir.mkdir(exist_ok=True)
 log_file = log_dir / "knmi_weather.log"
 
