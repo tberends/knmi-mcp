@@ -208,7 +208,7 @@ def weather_interpretation(raw_data: Dict[str, Any]) -> str:
         1. A clear summary of current conditions
         2. Important weather measurements and their values
         3. Any notable patterns or extreme values
-        4. Relevant clothing advice based on the conditions
+        4. Potential risks or hazards based on the data and the location for flooding (> 30mm/h), fire (wind speed> 10m/s and temperature>30°C), heat stress (temperature>30°C), etc.
         
         Location: {location} ({lat:.3f}°N, {lon:.3f}°E)
         Weather station: {station_name} ({station_id}) at {timestamp}
